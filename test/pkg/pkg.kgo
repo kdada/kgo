@@ -1,0 +1,146 @@
+package pkg
+
+struct Struct1 {
+	Field1  bool
+	Field2  char
+	Field3  byte
+	Field4  short
+	Field5  ushort
+	Field6  int
+	Field7  uint
+	Field8  long
+	Field9  ulong
+	Field10 float
+	Field11 double
+}
+
+struct Struct2 {
+	Field1  []bool
+	Field2  []char
+	Field3  []byte
+	Field4  []short
+	Field5  []ushort
+	Field6  []int
+	Field7  []uint
+	Field8  []long
+	Field9  []ulong
+	Field10 []float
+	Field11 []double
+}
+
+struct Struct3 {
+	Field1  *bool
+	Field2  *char
+	Field3  *byte
+	Field4  *short
+	Field5  *ushort
+	Field6  *int
+	Field7  *uint
+	Field8  *long
+	Field9  *ulong
+	Field10 *float
+	Field11 *double
+}
+
+struct Struct4 {
+	Field1  []*bool
+	Field2  []*char
+	Field3  []*byte
+	Field4  []*short
+	Field5  []*ushort
+	Field6  []*int
+	Field7  []*uint
+	Field8  []*long
+	Field9  []*ulong
+	Field10 []*float
+	Field11 []*double
+}
+
+enum(int) Type {
+	Int = iota
+	String
+}
+
+func NewStruct1() Struct1 {
+	const str = "\"str\""
+	var str2 = `line1
+line2
+`
+	var c = '1'
+	var s = Struct1 {
+		Field1: false,
+		Field2: c,
+		Field3: 121314,
+		Field4: 1-2,
+		Field5: 2+2,
+		Field6: 2/1,
+		Field7: 2%1,
+		Field8: -1000,
+		Field11: 1232.23434,	
+	}
+	var pc = &c
+	var b1 = true && false || true
+	var b2 = 1 == 1
+	var b3 = 1 > 1
+	var b3 = 1 >= 1
+	var b4 = 1 < 1
+	var b5 = 1 <= 1
+	var b6 = 1 != 1
+	var b7 = !false
+	s.Field4 += 1
+	s.Field4 -= 1
+	s.Field4 *= 1
+	s.Field4 /= 1
+	s.Field4 %= 2
+	s.Field8 = 1&2
+	s.Field8 = 1|2
+	s.Field8 = ~1
+	s.Field8 = ^1
+	s.Field8 = 1<<1
+	s.Field8 = 1>>1
+
+	if b1 {
+		s.Field10 = 1.0
+	} else if b2 {
+		s.Field10 = 1.1
+	} else {
+		s.Field10 = 1.2
+	}
+
+	switch {
+		case b1:
+			s.Field10 = 1.3
+			fallthrough
+		case b2:
+			s.Field11 = 2.3
+		default:
+			s.Field11 = 2.4
+	}
+
+	switch s.Field8 {
+		case 1:
+			s.Field11 = 2.6
+			fallthrough
+		case 2:
+			s.Field11 = 2.7
+		default:
+			s.Field11 = 2.8
+	}
+
+	for {
+		if s.Field11 > 1 {
+			break
+		}
+	}
+
+	for b1 {
+		if s.Field11 > 1 {
+			break
+		}
+	}
+
+	for var i = 1; i < 10; i += 1 {
+		s.Field9 += i
+	}
+	return s
+}

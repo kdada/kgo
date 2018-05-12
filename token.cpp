@@ -89,6 +89,9 @@ char const *TokenString(enum TOKEN token) {
     case K_RETURN:
         return "K_RETURN";
 
+    case K_IOTA:
+        return "K_IOTA";
+
     case L_BOOL:
         return "L_BOOL";
 
@@ -109,6 +112,9 @@ char const *TokenString(enum TOKEN token) {
 
     case L_EOF:
         return "L_EOF";
+
+    case L_DOT:
+        return "L_DOT";
 
     case O_ASSIGNMENT:
         return "O_ASSIGNMENT";
@@ -211,6 +217,9 @@ char const *TokenString(enum TOKEN token) {
 
     case C_SEMICOLON:
         return "C_SEMICOLON";
+
+    case C_COLON:
+        return "C_COLON";
 
     case T_ID:
         return "T_ID";

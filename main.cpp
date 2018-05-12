@@ -5,22 +5,24 @@
 
 int main() {
     FlexLexer *lexer = new yyFlexLexer();
-    auto line = 1;
     auto codes = std::string();
     auto tokens = std::string();
     int token = INVALID;
     int lastToken = INVALID;
     while (true) {
         token = lexer->yylex();
+        if (token == INVALID) {
+            break;
+        }
         if (lastToken == L_NEWLINE && token == L_EOF) {
             break;
         }
         if (token == L_NEWLINE || token == L_EOF) {
-            std::cout << "#" << line << ": " << codes << std::endl;
+            std::cout << "#" << lexer->lineno() - 1 << ": " << codes
+                      << std::endl;
             std::cout << "    " << tokens << std::endl;
             codes.clear();
             tokens.clear();
-            line++;
             if (token == L_EOF) {
                 break;
             }
@@ -33,7 +35,7 @@ int main() {
         tokens.append(" ");
     }
     if (token == INVALID) {
-        std::cout << "Invalid token on line: " << line << " " << lexer->YYText()
-                  << std::endl;
+        std::cout << "Invalid token on line: " << lexer->lineno() << " "
+                  << lexer->YYText() << std::endl;
     }
 }

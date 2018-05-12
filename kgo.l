@@ -34,15 +34,18 @@ func                     return K_FUNC;
 package                  return K_PACKAGE;
 import                   return K_IMPORT;
 return                   return K_RETURN;
+iota                     return K_IOTA;
+type                     return K_IOTA;
 
 \'(\\.|[^'\\])\'         return L_CHAR;
 \"(\\.|[^"\\])*\"        return L_STRING;
-`[^`]*`                  return L_STRING;
+`[^`]*`                  for(int i=0;i<yyleng;++i)if(yytext[i]=='\n')yylineno++;return L_STRING;
 (0|[1-9][0-9]*)\.[0-9]+  return L_FLOAT;
 (0|[1-9][0-9]*)          return L_INT;
 (true|false)             return L_BOOL;
-\n                       return L_NEWLINE;
+\n                       yylineno++; return L_NEWLINE;
 <<EOF>>                  return L_EOF;
+\.                       return L_DOT;
 
 =                        return O_ASSIGNMENT;
 \+=                      return O_ASSIGNMENT_PLUS;
@@ -79,7 +82,9 @@ return                   return K_RETURN;
 \}                       return C_BRACE_RIGHT;
 ,                        return C_COMMA;
 ;                        return C_SEMICOLON;
+:                        return C_COLON;
 
 [a-zA-Z][a-zA-Z0-9]*(_[a-zA-Z0-9]+)*     return T_ID;
 
+.                        return INVALID;
 %%

@@ -32,6 +32,7 @@ enum TOKEN {
     /*126*/ K_PACKAGE,
     /*127*/ K_IMPORT,
     /*128*/ K_RETURN,
+    /*129*/ K_IOTA,
 
     /*201*/ L_BOOL = 201,
     /*202*/ L_INT,
@@ -40,6 +41,7 @@ enum TOKEN {
     /*205*/ L_STRING,
     /*206*/ L_NEWLINE,
     /*207*/ L_EOF,
+    /*208*/ L_DOT,
 
     /*301*/ O_ASSIGNMENT = 301,
     /*302*/ O_ASSIGNMENT_PLUS,
@@ -76,6 +78,7 @@ enum TOKEN {
     /*406*/ C_BRACE_RIGHT,
     /*407*/ C_COMMA,
     /*408*/ C_SEMICOLON,
+    /*409*/ C_COLON,
 
     /*501*/ T_ID = 501,
 };
