@@ -28,14 +28,7 @@ mkdir:
 
 .PHONY: test
 test: $(TESTS)
-
-.PHONY: $(TESTS)
-$(TESTS): %:
-	@echo
-	@echo Test for $@
-	@cat  $@ | $(TARGET)
-	@echo
-	@echo
+	$(TARGET) $^
 
 .PHONY: clean
 clean:

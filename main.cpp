@@ -1,10 +1,13 @@
 #include "token.h"
 #include <FlexLexer.h>
 #include <cstdlib>
+#include <fstream>
 #include <iostream>
+#include <memory>
 
-int main() {
-    FlexLexer *lexer = new yyFlexLexer();
+bool scan(char *path) {
+    std::ifstream file(path);
+    auto lexer = std::make_unique<yyFlexLexer>(&file);
     auto codes = std::string();
     auto tokens = std::string();
     int token = INVALID;
@@ -38,5 +41,21 @@ int main() {
     if (token == INVALID) {
         std::cout << "Invalid token on line: " << lexer->lineno() << " "
                   << lexer->YYText() << std::endl;
+        return false;
     }
+    return true;
+}
+
+int main(int argc, char **argv) {
+    for (int i = 1; i < argc; i++) {
+        if (argv[i][0] == '-') {
+            i++;
+        }
+        std::cout << "Parse " << argv[i] << std::endl << std::endl;
+        if (!scan(argv[i])) {
+            return 1;
+        }
+        std::cout << std::endl << std::endl;
+    }
+    return 0;
 }
