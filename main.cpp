@@ -9,6 +9,7 @@ int main() {
     auto tokens = std::string();
     int token = INVALID;
     int lastToken = INVALID;
+    int no = lexer->lineno();
     while (true) {
         token = lexer->yylex();
         if (token == INVALID) {
@@ -18,8 +19,7 @@ int main() {
             break;
         }
         if (token == L_NEWLINE || token == L_EOF) {
-            std::cout << "#" << lexer->lineno() - 1 << ": " << codes
-                      << std::endl;
+            std::cout << "#" << no << ": " << codes << std::endl;
             std::cout << "    " << tokens << std::endl;
             codes.clear();
             tokens.clear();
@@ -27,6 +27,7 @@ int main() {
                 break;
             }
             lastToken = token;
+            no = lexer->lineno();
             continue;
         }
         codes.append(lexer->YYText());

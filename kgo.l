@@ -4,8 +4,8 @@
 
 %option noyywrap c++
 
+%x COMMENT
 %%
-[ \t]                    ;
 bool                     return K_BOOL;
 char                     return K_CHAR;
 byte                     return K_BYTE;
@@ -43,9 +43,12 @@ type                     return K_IOTA;
 (0|[1-9][0-9]*)\.[0-9]+  return L_FLOAT;
 (0|[1-9][0-9]*)          return L_INT;
 (true|false)             return L_BOOL;
-\n                       yylineno++; return L_NEWLINE;
+\n                       yylineno++;return L_NEWLINE;
 <<EOF>>                  return L_EOF;
 \.                       return L_DOT;
+[ \t]+                   return L_SPACE;
+\/\/[^\n]*               return L_COMMENT;
+\/\*(\*[^\/]|[^\*])*\*?\*\/ for(int i=0;i<yyleng;++i)if(yytext[i]=='\n')yylineno++;return L_COMMENT;
 
 =                        return O_ASSIGNMENT;
 \+=                      return O_ASSIGNMENT_PLUS;

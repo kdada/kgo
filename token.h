@@ -42,6 +42,8 @@ enum TOKEN {
     /*206*/ L_NEWLINE,
     /*207*/ L_EOF,
     /*208*/ L_DOT,
+    /*209*/ L_SPACE,
+    /*210*/ L_COMMENT,
 
     /*301*/ O_ASSIGNMENT = 301,
     /*302*/ O_ASSIGNMENT_PLUS,

@@ -61,13 +61,15 @@ enum(int) Type {
 	String
 }
 
+// comments
+
 func NewStruct1() Struct1 {
 	const str = "\"str\""
 	var str2 = `line1
 line2
 `
 	var c = '1'
-	var s = Struct1 {
+	var s = Struct1 { // comments
 		Field1: false,
 		Field2: c,
 		Field3: 121314,

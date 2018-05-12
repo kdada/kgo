@@ -4,6 +4,11 @@ import (
 	"../pkg"
 )
 
+/*/*
+as
+da
+*
+*/
 func main() {
 	var r = pkg.NewStruct1()
 }

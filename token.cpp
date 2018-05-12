@@ -116,6 +116,12 @@ char const *TokenString(enum TOKEN token) {
     case L_DOT:
         return "L_DOT";
 
+    case L_SPACE:
+        return "L_SPACE";
+
+    case L_COMMENT:
+        return "L_COMMENT";
+
     case O_ASSIGNMENT:
         return "O_ASSIGNMENT";
 
