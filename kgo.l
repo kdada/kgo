@@ -1,93 +1,93 @@
 %{
-#include "token.h"
+#include "token.hpp"
 %}
 
-%option noyywrap c++
+%option c++ noyywrap nodefault
 
 %x COMMENT
 %%
-bool                     return K_BOOL;
-char                     return K_CHAR;
-byte                     return K_BYTE;
-short                    return K_SHORT;
-ushort                   return K_USHORT;
-int                      return K_INT;
-uint                     return K_UINT;
-long                     return K_LONG;
-ulong                    return K_ULONG;
-float                    return K_FLOAT;
-double                   return K_DOUBLE;
-var                      return K_VAR;
-const                    return K_CONST;
-if                       return K_IF;
-else                     return K_ELSE;
-switch                   return K_SWITCH;
-case                     return K_CASE;
-continue                 return K_CONTINUE;
-fallthrough              return K_FALLTHROUGH;
-default                  return K_DEFAULT;
-for                      return K_FOR;
-break                    return K_BREAK;
-enum                     return K_ENUM;
-struct                   return K_STRUCT;
-func                     return K_FUNC;
-package                  return K_PACKAGE;
-import                   return K_IMPORT;
-return                   return K_RETURN;
-iota                     return K_IOTA;
-type                     return K_IOTA;
+bool                     return kgo::K_BOOL;
+char                     return kgo::K_CHAR;
+byte                     return kgo::K_BYTE;
+short                    return kgo::K_SHORT;
+ushort                   return kgo::K_USHORT;
+int                      return kgo::K_INT;
+uint                     return kgo::K_UINT;
+long                     return kgo::K_LONG;
+ulong                    return kgo::K_ULONG;
+float                    return kgo::K_FLOAT;
+double                   return kgo::K_DOUBLE;
+var                      return kgo::K_VAR;
+const                    return kgo::K_CONST;
+if                       return kgo::K_IF;
+else                     return kgo::K_ELSE;
+switch                   return kgo::K_SWITCH;
+case                     return kgo::K_CASE;
+continue                 return kgo::K_CONTINUE;
+fallthrough              return kgo::K_FALLTHROUGH;
+default                  return kgo::K_DEFAULT;
+for                      return kgo::K_FOR;
+break                    return kgo::K_BREAK;
+enum                     return kgo::K_ENUM;
+struct                   return kgo::K_STRUCT;
+func                     return kgo::K_FUNC;
+package                  return kgo::K_PACKAGE;
+import                   return kgo::K_IMPORT;
+return                   return kgo::K_RETURN;
+iota                     return kgo::K_IOTA;
+type                     return kgo::K_IOTA;
 
-\'(\\.|[^'\\])\'         return L_CHAR;
-\"(\\.|[^"\\])*\"        return L_STRING;
-`[^`]*`                  for(int i=0;i<yyleng;++i)if(yytext[i]=='\n')yylineno++;return L_STRING;
-(0|[1-9][0-9]*)\.[0-9]+  return L_FLOAT;
-(0|[1-9][0-9]*)          return L_INT;
-(true|false)             return L_BOOL;
-\n                       yylineno++;return L_NEWLINE;
-<<EOF>>                  return L_EOF;
-\.                       return L_DOT;
-[ \t]+                   return L_SPACE;
-\/\/[^\n]*               return L_COMMENT;
-\/\*(\*[^\/]|[^\*])*\*?\*\/ for(int i=0;i<yyleng;++i)if(yytext[i]=='\n')yylineno++;return L_COMMENT;
+\'(\\.|[^'\\])\'         return kgo::L_CHAR;
+\"(\\.|[^"\\])*\"        return kgo::L_STRING;
+`[^`]*`                  for(int i=0;i<yyleng;++i)if(yytext[i]=='\n')yylineno++;return kgo::L_STRING;
+(0|[1-9][0-9]*)\.[0-9]+  return kgo::L_FLOAT;
+(0|[1-9][0-9]*)          return kgo::L_INT;
+(true|false)             return kgo::L_BOOL;
+\n                       yylineno++;return kgo::L_NEWLINE;
+\.                       return kgo::L_DOT;
+[ \t]+                   return kgo::L_SPACE;
+\/\/[^\n]*               return kgo::L_COMMENT;
+\/\*(\*[^\/]|[^\*])*\*?\*\/ for(int i=0;i<yyleng;++i)if(yytext[i]=='\n')yylineno++;return kgo::L_COMMENT;
 
-=                        return O_ASSIGNMENT;
-\+=                      return O_ASSIGNMENT_PLUS;
-\-=                      return O_ASSIGNMENT_MINUS;
-\*=                      return O_ASSIGNMENT_MULTIPLY;
-\/=                      return O_ASSIGNMENT_DIVIDE;
-%=                       return O_ASSIGNMENT_MOD;
-&&                       return O_LOGIC_AND;
-\|\|                     return O_LOGIC_OR;
-!                        return O_LOGIC_NOT;
-==                       return O_LOGIC_EQUAL;
->                        return O_LOGIC_GT;
->=                       return O_LOGIC_GE;
-\<                       return O_LOGIC_LT;
-\<=                      return O_LOGIC_LE;
-!=                       return O_LOGIC_NE;
-\+                       return O_ARITHMETIC_PLUS;
--                        return O_ARITHMETIC_MINUS;
-\*                       return O_ARITHMETIC_MULTIPLY;
-\/                       return O_ARITHMETIC_DIVIDE;
-%                        return O_ARITHMETIC_MOD;
-&                        return O_BIT_AND;
-\|                       return O_BIT_OR;
-~                        return O_BIT_NOT;
-\^                       return O_BIT_XOR;
-\<\<                     return O_BIT_LEFT;
->>                       return O_BIT_RIGHT;
+=                        return kgo::O_ASSIGNMENT;
+\+=                      return kgo::O_ASSIGNMENT_PLUS;
+\-=                      return kgo::O_ASSIGNMENT_MINUS;
+\*=                      return kgo::O_ASSIGNMENT_MULTIPLY;
+\/=                      return kgo::O_ASSIGNMENT_DIVIDE;
+%=                       return kgo::O_ASSIGNMENT_MOD;
+&&                       return kgo::O_LOGIC_AND;
+\|\|                     return kgo::O_LOGIC_OR;
+!                        return kgo::O_LOGIC_NOT;
+==                       return kgo::O_LOGIC_EQUAL;
+>                        return kgo::O_LOGIC_GT;
+>=                       return kgo::O_LOGIC_GE;
+\<                       return kgo::O_LOGIC_LT;
+\<=                      return kgo::O_LOGIC_LE;
+!=                       return kgo::O_LOGIC_NE;
+\+                       return kgo::O_ARITHMETIC_PLUS;
+-                        return kgo::O_ARITHMETIC_MINUS;
+\*                       return kgo::O_ARITHMETIC_MULTIPLY;
+\/                       return kgo::O_ARITHMETIC_DIVIDE;
+%                        return kgo::O_ARITHMETIC_MOD;
+&                        return kgo::O_BIT_AND;
+\|                       return kgo::O_BIT_OR;
+~                        return kgo::O_BIT_NOT;
+\^                       return kgo::O_BIT_XOR;
+\<\<                     return kgo::O_BIT_LEFT;
+>>                       return kgo::O_BIT_RIGHT;
 
-\(                       return C_PARENTHESIS_LEFT;
-\)                       return C_PARENTHESIS_RIGHT;
-\[                       return C_BRACKET_LEFT;
-\]                       return C_BRACKET_RIGHT;
-\{                       return C_BRACE_LEFT;
-\}                       return C_BRACE_RIGHT;
-,                        return C_COMMA;
-;                        return C_SEMICOLON;
-:                        return C_COLON;
+\(                       return kgo::C_PARENTHESIS_LEFT;
+\)                       return kgo::C_PARENTHESIS_RIGHT;
+\[                       return kgo::C_BRACKET_LEFT;
+\]                       return kgo::C_BRACKET_RIGHT;
+\{                       return kgo::C_BRACE_LEFT;
+\}                       return kgo::C_BRACE_RIGHT;
+,                        return kgo::C_COMMA;
+;                        return kgo::C_SEMICOLON;
+:                        return kgo::C_COLON;
 
-[a-zA-Z][a-zA-Z0-9]*(_[a-zA-Z0-9]+)*     return T_ID;
+[a-zA-Z][a-zA-Z0-9]*(_[a-zA-Z0-9]+)*     return kgo::T_ID;
 
-.                        return INVALID;
+.                        return kgo::Z_INVALID;
+<<EOF>>                  return kgo::Z_EOF;
 %%

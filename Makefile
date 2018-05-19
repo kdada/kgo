@@ -11,7 +11,7 @@ LDFLAGS=
 
 
 .PHONY: all
-all: lex.cpp mkdir $(TARGET)
+all: lex.cpp parser.cpp mkdir $(TARGET)
 
 $(TARGET): $(OBJECTS)
 	$(CXX) $(LDFLAGS) $^ -o $@
@@ -21,6 +21,9 @@ $(OBJECTS): $(BUILDDIR)/%.o: $(SOURCEDIR)/%.cpp
 
 lex.cpp: kgo.l
 	@flex -o $@ $<
+
+parser.cpp: kgo.y
+	@bison --defines=parser.hpp -o $@ $<
 
 .PHONY: mkdir
 mkdir:

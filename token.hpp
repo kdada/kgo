@@ -1,8 +1,13 @@
 #ifndef TOKEN_H
 #define TOKEN_H
 
+#include <iostream>
+
+namespace kgo {
+
 enum TOKEN {
-    /*000*/ INVALID = 0,
+    /*000*/ Z_EOF = 0,
+    /*001*/ Z_INVALID,
 
     /*101*/ K_BOOL = 101,
     /*102*/ K_CHAR,
@@ -40,10 +45,9 @@ enum TOKEN {
     /*204*/ L_CHAR,
     /*205*/ L_STRING,
     /*206*/ L_NEWLINE,
-    /*207*/ L_EOF,
-    /*208*/ L_DOT,
-    /*209*/ L_SPACE,
-    /*210*/ L_COMMENT,
+    /*207*/ L_DOT,
+    /*208*/ L_SPACE,
+    /*209*/ L_COMMENT,
 
     /*301*/ O_ASSIGNMENT = 301,
     /*302*/ O_ASSIGNMENT_PLUS,
@@ -85,6 +89,15 @@ enum TOKEN {
     /*501*/ T_ID = 501,
 };
 
-char const *TokenString(enum TOKEN token);
+class Token {
+  public:
+    TOKEN token;
+    int line;
+    int pos;
+    std::string data;
+    Token(TOKEN token, const char *data, int line, int pos);
+};
 
+char const *TokenString(enum TOKEN token);
+}
 #endif

@@ -572,7 +572,7 @@ static yyconst flex_int16_t yy_chk[451] =
 #define YY_RESTORE_YY_MORE_OFFSET
 #line 1 "kgo.l"
 #line 2 "kgo.l"
-#include "token.h"
+#include "token.hpp"
 
 #line 578 "lex.cpp"
 
@@ -769,407 +769,407 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 9 "kgo.l"
-return K_BOOL;
+return kgo::K_BOOL;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 10 "kgo.l"
-return K_CHAR;
+return kgo::K_CHAR;
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 11 "kgo.l"
-return K_BYTE;
+return kgo::K_BYTE;
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 12 "kgo.l"
-return K_SHORT;
+return kgo::K_SHORT;
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 13 "kgo.l"
-return K_USHORT;
+return kgo::K_USHORT;
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 14 "kgo.l"
-return K_INT;
+return kgo::K_INT;
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 15 "kgo.l"
-return K_UINT;
+return kgo::K_UINT;
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 16 "kgo.l"
-return K_LONG;
+return kgo::K_LONG;
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 17 "kgo.l"
-return K_ULONG;
+return kgo::K_ULONG;
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
 #line 18 "kgo.l"
-return K_FLOAT;
+return kgo::K_FLOAT;
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 19 "kgo.l"
-return K_DOUBLE;
+return kgo::K_DOUBLE;
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
 #line 20 "kgo.l"
-return K_VAR;
+return kgo::K_VAR;
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
 #line 21 "kgo.l"
-return K_CONST;
+return kgo::K_CONST;
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
 #line 22 "kgo.l"
-return K_IF;
+return kgo::K_IF;
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
 #line 23 "kgo.l"
-return K_ELSE;
+return kgo::K_ELSE;
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
 #line 24 "kgo.l"
-return K_SWITCH;
+return kgo::K_SWITCH;
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
 #line 25 "kgo.l"
-return K_CASE;
+return kgo::K_CASE;
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
 #line 26 "kgo.l"
-return K_CONTINUE;
+return kgo::K_CONTINUE;
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
 #line 27 "kgo.l"
-return K_FALLTHROUGH;
+return kgo::K_FALLTHROUGH;
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
 #line 28 "kgo.l"
-return K_DEFAULT;
+return kgo::K_DEFAULT;
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
 #line 29 "kgo.l"
-return K_FOR;
+return kgo::K_FOR;
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
 #line 30 "kgo.l"
-return K_BREAK;
+return kgo::K_BREAK;
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
 #line 31 "kgo.l"
-return K_ENUM;
+return kgo::K_ENUM;
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
 #line 32 "kgo.l"
-return K_STRUCT;
+return kgo::K_STRUCT;
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
 #line 33 "kgo.l"
-return K_FUNC;
+return kgo::K_FUNC;
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
 #line 34 "kgo.l"
-return K_PACKAGE;
+return kgo::K_PACKAGE;
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
 #line 35 "kgo.l"
-return K_IMPORT;
+return kgo::K_IMPORT;
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
 #line 36 "kgo.l"
-return K_RETURN;
+return kgo::K_RETURN;
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
 #line 37 "kgo.l"
-return K_IOTA;
+return kgo::K_IOTA;
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
 #line 38 "kgo.l"
-return K_IOTA;
+return kgo::K_IOTA;
 	YY_BREAK
 case 31:
 /* rule 31 can match eol */
 YY_RULE_SETUP
 #line 40 "kgo.l"
-return L_CHAR;
+return kgo::L_CHAR;
 	YY_BREAK
 case 32:
 /* rule 32 can match eol */
 YY_RULE_SETUP
 #line 41 "kgo.l"
-return L_STRING;
+return kgo::L_STRING;
 	YY_BREAK
 case 33:
 /* rule 33 can match eol */
 YY_RULE_SETUP
 #line 42 "kgo.l"
-for(int i=0;i<yyleng;++i)if(yytext[i]=='\n')yylineno++;return L_STRING;
+for(int i=0;i<yyleng;++i)if(yytext[i]=='\n')yylineno++;return kgo::L_STRING;
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
 #line 43 "kgo.l"
-return L_FLOAT;
+return kgo::L_FLOAT;
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
 #line 44 "kgo.l"
-return L_INT;
+return kgo::L_INT;
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
 #line 45 "kgo.l"
-return L_BOOL;
+return kgo::L_BOOL;
 	YY_BREAK
 case 37:
 /* rule 37 can match eol */
 YY_RULE_SETUP
 #line 46 "kgo.l"
-yylineno++;return L_NEWLINE;
-	YY_BREAK
-case YY_STATE_EOF(INITIAL):
-case YY_STATE_EOF(COMMENT):
-#line 47 "kgo.l"
-return L_EOF;
+yylineno++;return kgo::L_NEWLINE;
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 48 "kgo.l"
-return L_DOT;
+#line 47 "kgo.l"
+return kgo::L_DOT;
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 49 "kgo.l"
-return L_SPACE;
+#line 48 "kgo.l"
+return kgo::L_SPACE;
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 50 "kgo.l"
-return L_COMMENT;
+#line 49 "kgo.l"
+return kgo::L_COMMENT;
 	YY_BREAK
 case 41:
 /* rule 41 can match eol */
 YY_RULE_SETUP
-#line 51 "kgo.l"
-for(int i=0;i<yyleng;++i)if(yytext[i]=='\n')yylineno++;return L_COMMENT;
+#line 50 "kgo.l"
+for(int i=0;i<yyleng;++i)if(yytext[i]=='\n')yylineno++;return kgo::L_COMMENT;
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 53 "kgo.l"
-return O_ASSIGNMENT;
+#line 52 "kgo.l"
+return kgo::O_ASSIGNMENT;
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 54 "kgo.l"
-return O_ASSIGNMENT_PLUS;
+#line 53 "kgo.l"
+return kgo::O_ASSIGNMENT_PLUS;
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 55 "kgo.l"
-return O_ASSIGNMENT_MINUS;
+#line 54 "kgo.l"
+return kgo::O_ASSIGNMENT_MINUS;
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 56 "kgo.l"
-return O_ASSIGNMENT_MULTIPLY;
+#line 55 "kgo.l"
+return kgo::O_ASSIGNMENT_MULTIPLY;
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 57 "kgo.l"
-return O_ASSIGNMENT_DIVIDE;
+#line 56 "kgo.l"
+return kgo::O_ASSIGNMENT_DIVIDE;
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 58 "kgo.l"
-return O_ASSIGNMENT_MOD;
+#line 57 "kgo.l"
+return kgo::O_ASSIGNMENT_MOD;
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 59 "kgo.l"
-return O_LOGIC_AND;
+#line 58 "kgo.l"
+return kgo::O_LOGIC_AND;
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 60 "kgo.l"
-return O_LOGIC_OR;
+#line 59 "kgo.l"
+return kgo::O_LOGIC_OR;
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 61 "kgo.l"
-return O_LOGIC_NOT;
+#line 60 "kgo.l"
+return kgo::O_LOGIC_NOT;
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 62 "kgo.l"
-return O_LOGIC_EQUAL;
+#line 61 "kgo.l"
+return kgo::O_LOGIC_EQUAL;
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 63 "kgo.l"
-return O_LOGIC_GT;
+#line 62 "kgo.l"
+return kgo::O_LOGIC_GT;
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 64 "kgo.l"
-return O_LOGIC_GE;
+#line 63 "kgo.l"
+return kgo::O_LOGIC_GE;
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 65 "kgo.l"
-return O_LOGIC_LT;
+#line 64 "kgo.l"
+return kgo::O_LOGIC_LT;
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 66 "kgo.l"
-return O_LOGIC_LE;
+#line 65 "kgo.l"
+return kgo::O_LOGIC_LE;
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 67 "kgo.l"
-return O_LOGIC_NE;
+#line 66 "kgo.l"
+return kgo::O_LOGIC_NE;
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 68 "kgo.l"
-return O_ARITHMETIC_PLUS;
+#line 67 "kgo.l"
+return kgo::O_ARITHMETIC_PLUS;
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 69 "kgo.l"
-return O_ARITHMETIC_MINUS;
+#line 68 "kgo.l"
+return kgo::O_ARITHMETIC_MINUS;
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 70 "kgo.l"
-return O_ARITHMETIC_MULTIPLY;
+#line 69 "kgo.l"
+return kgo::O_ARITHMETIC_MULTIPLY;
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 71 "kgo.l"
-return O_ARITHMETIC_DIVIDE;
+#line 70 "kgo.l"
+return kgo::O_ARITHMETIC_DIVIDE;
 	YY_BREAK
 case 61:
 YY_RULE_SETUP
-#line 72 "kgo.l"
-return O_ARITHMETIC_MOD;
+#line 71 "kgo.l"
+return kgo::O_ARITHMETIC_MOD;
 	YY_BREAK
 case 62:
 YY_RULE_SETUP
-#line 73 "kgo.l"
-return O_BIT_AND;
+#line 72 "kgo.l"
+return kgo::O_BIT_AND;
 	YY_BREAK
 case 63:
 YY_RULE_SETUP
-#line 74 "kgo.l"
-return O_BIT_OR;
+#line 73 "kgo.l"
+return kgo::O_BIT_OR;
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
-#line 75 "kgo.l"
-return O_BIT_NOT;
+#line 74 "kgo.l"
+return kgo::O_BIT_NOT;
 	YY_BREAK
 case 65:
 YY_RULE_SETUP
-#line 76 "kgo.l"
-return O_BIT_XOR;
+#line 75 "kgo.l"
+return kgo::O_BIT_XOR;
 	YY_BREAK
 case 66:
 YY_RULE_SETUP
-#line 77 "kgo.l"
-return O_BIT_LEFT;
+#line 76 "kgo.l"
+return kgo::O_BIT_LEFT;
 	YY_BREAK
 case 67:
 YY_RULE_SETUP
-#line 78 "kgo.l"
-return O_BIT_RIGHT;
+#line 77 "kgo.l"
+return kgo::O_BIT_RIGHT;
 	YY_BREAK
 case 68:
 YY_RULE_SETUP
-#line 80 "kgo.l"
-return C_PARENTHESIS_LEFT;
+#line 79 "kgo.l"
+return kgo::C_PARENTHESIS_LEFT;
 	YY_BREAK
 case 69:
 YY_RULE_SETUP
-#line 81 "kgo.l"
-return C_PARENTHESIS_RIGHT;
+#line 80 "kgo.l"
+return kgo::C_PARENTHESIS_RIGHT;
 	YY_BREAK
 case 70:
 YY_RULE_SETUP
-#line 82 "kgo.l"
-return C_BRACKET_LEFT;
+#line 81 "kgo.l"
+return kgo::C_BRACKET_LEFT;
 	YY_BREAK
 case 71:
 YY_RULE_SETUP
-#line 83 "kgo.l"
-return C_BRACKET_RIGHT;
+#line 82 "kgo.l"
+return kgo::C_BRACKET_RIGHT;
 	YY_BREAK
 case 72:
 YY_RULE_SETUP
-#line 84 "kgo.l"
-return C_BRACE_LEFT;
+#line 83 "kgo.l"
+return kgo::C_BRACE_LEFT;
 	YY_BREAK
 case 73:
 YY_RULE_SETUP
-#line 85 "kgo.l"
-return C_BRACE_RIGHT;
+#line 84 "kgo.l"
+return kgo::C_BRACE_RIGHT;
 	YY_BREAK
 case 74:
 YY_RULE_SETUP
-#line 86 "kgo.l"
-return C_COMMA;
+#line 85 "kgo.l"
+return kgo::C_COMMA;
 	YY_BREAK
 case 75:
 YY_RULE_SETUP
-#line 87 "kgo.l"
-return C_SEMICOLON;
+#line 86 "kgo.l"
+return kgo::C_SEMICOLON;
 	YY_BREAK
 case 76:
 YY_RULE_SETUP
-#line 88 "kgo.l"
-return C_COLON;
+#line 87 "kgo.l"
+return kgo::C_COLON;
 	YY_BREAK
 case 77:
 YY_RULE_SETUP
-#line 90 "kgo.l"
-return T_ID;
+#line 89 "kgo.l"
+return kgo::T_ID;
 	YY_BREAK
 case 78:
 YY_RULE_SETUP
+#line 91 "kgo.l"
+return kgo::Z_INVALID;
+	YY_BREAK
+case YY_STATE_EOF(INITIAL):
+case YY_STATE_EOF(COMMENT):
 #line 92 "kgo.l"
-return INVALID;
+return kgo::Z_EOF;
 	YY_BREAK
 case 79:
 YY_RULE_SETUP
 #line 93 "kgo.l"
-ECHO;
+YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
 #line 1175 "lex.cpp"
 

@@ -1,8 +1,12 @@
-#include "token.h"
+#include "token.hpp"
+
+namespace kgo {
 
 char const *TokenString(enum TOKEN token) {
     switch (token) {
-    case INVALID:
+    case Z_EOF:
+        return "EOF";
+    case Z_INVALID:
         return "INVALID";
 
     case K_BOOL:
@@ -109,9 +113,6 @@ char const *TokenString(enum TOKEN token) {
 
     case L_NEWLINE:
         return "L_NEWLINE";
-
-    case L_EOF:
-        return "L_EOF";
 
     case L_DOT:
         return "L_DOT";
@@ -230,4 +231,12 @@ char const *TokenString(enum TOKEN token) {
     case T_ID:
         return "T_ID";
     }
+}
+
+Token::Token(TOKEN token, const char *data, int line, int pos) {
+    this->token = token;
+    this->data = std::string(data);
+    this->line = line;
+    this->pos = pos;
+}
 }
